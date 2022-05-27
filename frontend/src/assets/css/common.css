@@ -1,0 +1,109 @@
+#bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+
+#black-font {
+  font-family: CBNUJIKJI;
+  color: black;
+}
+#base-font {
+  font-family: CBNUJIKJI;
+  color: #DDDDDD;
+}
+#background-black {
+  font-family: CBNUJIKJI;
+  background-color: #222831;
+  color: #DDDDDD;
+}
+.full-screen {
+  width: 100%;
+  height: 100%;
+  font-size:smaller;
+}
+#btn-color {
+  background-color: #30475E;
+  color: #DDDDDD;
+} 
+#btn-color-kira {
+  background-color: #F05454;
+  color: #DDDDDD;
+} 
+#base-border {
+  border: solid 0.25rem #30475E;
+  border-radius: 5px;
+}
+#red-border {
+  border: solid 0.25rem #F05454;
+  border-radius: 5px;
+}
+#blue-hr {
+  border: solid #30475E;
+}
+#red-hr {
+  border: solid #F05454;
+}
+.select-btn {
+  border:3px solid #30475E;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 0.4em 0.9em;
+}
+
+@font-face {
+  font-family: 'CBNUJIKJI';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/CBNUJIKJI.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 스크롤 바 관련 css */
+.scroll-bar {
+  overflow: auto;
+}
+.scroll-bar::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+.scroll-bar::-webkit-scrollbar-thumb {
+  background-color: #7c7a7a;
+  border-radius: 15px;
+  z-index: -100;
+  background-clip: padding-box;
+  /* border: 0.5px solid transparent; */ /* 스크롤 바 두께 픽셀이 굵어지면 가늘어진다*/
+}
+.colored-toast.swal2-icon-success {
+  background-color: #a5dc86 !important;
+}
+
+.colored-toast.swal2-icon-error {
+  background-color: #f27474 !important;
+}
+
+.colored-toast.swal2-icon-warning {
+  background-color: #f8bb86 !important;
+}
+
+.colored-toast.swal2-icon-info {
+  background-color: #3fc3ee !important;
+}
+
+.colored-toast.swal2-icon-question {
+  background-color: #87adbd !important;
+}
+
+.colored-toast .swal2-title {
+  color: white;
+}
+
+.colored-toast .swal2-close {
+  color: white;
+}
+
+.colored-toast .swal2-html-container {
+  color: white;
+}
