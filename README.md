@@ -48,13 +48,13 @@
 - session.connect() : 해당 세션에 연결한다.
 
 2) 기본 동작 구성  
- a. joinsession이 모든 작업의 시발점이다.  
- b. joinsession의 구성을 살펴보면 먼저 OV객체를 생성하고 세션을 만든다. subscribers를 빈 리스트로 만들고 streamCreated와 streamDestroyed 이벤트를 등록한다. 이 두 이벤트는 각각 session.publish()와 session.unpublish()할 때 자동으로 시그널을 보내도록 설계되어 있다. 즉, 한명의 참여자가 늘거나 줄어들 때, 참여자들의 subscribers에 변화를 주기위한 코드다.(이 부분을 찾는데 오래 걸렸다...)  
- c. 입력된 값으로 토큰을 발급받고 토큰을 기반으로 특정 세션에 session.connect를 실행한다.  
+- joinsession이 모든 작업의 시발점이다.  
+- joinsession의 구성을 살펴보면 먼저 OV객체를 생성하고 세션을 만든다. subscribers를 빈 리스트로 만들고 streamCreated와 streamDestroyed 이벤트를 등록한다. 이 두 이벤트는 각각 session.publish()와 session.unpublish()할 때 자동으로 시그널을 보내도록 설계되어 있다. 즉, 한명의 참여자가 늘거나 줄어들 때, 참여자들의 subscribers에 변화를 주기위한 코드다.(이 부분을 찾는데 오래 걸렸다...)  
+- 입력된 값으로 토큰을 발급받고 토큰을 기반으로 특정 세션에 session.connect를 실행한다.  
      (이 때, vuex store에도 관련 정보들을 저장해주도록 하자.) 
- d. c까지 완료되면 joinsession은 끝이나고 leaveSession함수는 반대로 초기화하는 역할을 한다.  
+- c까지 완료되면 joinsession은 끝이나고 leaveSession함수는 반대로 초기화하는 역할을 한다.  
 
 3) session연결 connect? publish?  
- a. 처음 보았을 때 "session에 연결한다."라는 개념이 명확하지 않았다. (session.connect에서 .connect가 줄바꿈 되어있는 것도 한 몫 했다...😑..;)  
- b. 명확한 순서는 session.connect - session.publish - session.unpublish - session.disconnect 순이다.  
- c. 정리하자면 connect가 session에 연결하는 함수이고 publish는 publisher를 등록하는 함수다. 즉, connect만 되어있고 publisher로 등록되지 않은 사람도 있을 수 있다. (게임에서 옵저버라고 볼 수 있다.)  한마디로 connect가 session에 연결한다라는 개념이라면 publish는 스트리밍 정보를 등록해서 화면에 나오도록 한다라는 개념으로 이해하면 된다. 이 개념을 이용하여 우리 프로젝트에서 "명함교환방"이라는 기능과 사망처리를 구현할 수 있었다.  
+- 처음 보았을 때 "session에 연결한다."라는 개념이 명확하지 않았다. (session.connect에서 .connect가 줄바꿈 되어있는 것도 한 몫 했다...😑..;)  
+- 명확한 순서는 session.connect - session.publish - session.unpublish - session.disconnect 순이다.  
+- 정리하자면 connect가 session에 연결하는 함수이고 publish는 publisher를 등록하는 함수다. 즉, connect만 되어있고 publisher로 등록되지 않은 사람도 있을 수 있다. (게임에서 옵저버라고 볼 수 있다.)  한마디로 connect가 session에 연결한다라는 개념이라면 publish는 스트리밍 정보를 등록해서 화면에 나오도록 한다라는 개념으로 이해하면 된다. 이 개념을 이용하여 우리 프로젝트에서 "명함교환방"이라는 기능과 사망처리를 구현할 수 있었다.  
